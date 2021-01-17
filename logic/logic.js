@@ -1,17 +1,22 @@
-// Define Global Variables
+// Wrap Document.ready
+$(document).ready(function() {
 
-// Add Event Handlers
+    // Define Global Variables
 
-// Define Script Logic
+    // Add Event Handlers
 
-    // When page loads get current date and time and display in jumbotron...
+    // Define Script Logic
 
-    // Assign color coding to time blocks based on current date and time...
+        // When page loads get current date and time and display in jumbotron...
 
-        // Indicate Past Time Blocks
+        // Assign color coding to time blocks based on current date and time...
 
-        // Indicate Present Time Blocks
+            // Indicate Past Time Blocks
 
-        // Indicate Future Time Blocks
+            // Indicate Present Time Blocks
 
-    // Store schedule entries locally upon click of the save button for that time block
+            // Indicate Future Time Blocks
+
+        // Store schedule entries locally upon click of the Schedule button for that time block
+
+})

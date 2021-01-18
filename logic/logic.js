@@ -62,9 +62,13 @@ $(document).ready(function() {
                 console.log("User Event Scheduled = " + "'" + scheduleEntry + "'");
 
             // Store it to local storage with a key unique to that input...
+            
+                // Traverse the dom to get the data hour attribute of the overall row to set as the key..
+                var localKey = $(this).parents("form").siblings().attr("data-hour");
+                    console.log("local key generated for this schedule item is " + localKey);
 
-
-
+                // Store the value for this input with the local key using javascript localstore method...
+                localStorage.setItem(localKey, scheduleEntry);
         })
 
 

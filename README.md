@@ -9,7 +9,7 @@ This is the fifth assignment related to the gt full stack course I took, with go
 4.  [Credits](#Credits)
 
 ## Deployed Application
-[Enter]
+[https://wryanj.github.io/gt_fsf_hw5_work_day_scheduler/]
 
 ## Motivation
 I did this to progress my knowledge on jQuery, and also learned about some time and date APIs such as day.js.

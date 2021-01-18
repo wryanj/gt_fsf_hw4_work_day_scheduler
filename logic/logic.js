@@ -56,7 +56,7 @@ $(document).ready(function() {
         // When a user types an entry and hits the schedule button...
         $(".scheduleButton").click(function() { 
             console.log("detected schedule button click");
-            console.log ("Event 1 Value is" + $("#event1").val());
+            console.log ("Event 1 (test ) Value is " + $("#testInputValue").val());
 
             // Capture text inputted to the button's sibling input element...(HOW TO TRAVERSE DOM UP TWO OVER THEN DOWN FOR THIS?)
             scheduleEntry = $(this).parentsUntil(".buttonGrandParent").siblings(".buttonGrandParentSibling").children().val();

@@ -20,6 +20,7 @@ $(document).ready(function() {
     // Define Script Logic
 
         // When page loads....
+
             // Get current date and time and display in jumbotron...
             $ ("#currentDay").text(todayDate);
 
@@ -32,27 +33,43 @@ $(document).ready(function() {
                 var elemenetDataHour = $(this).attr("data-hour");
                     console.log("data-hour attribute retrieved for elemenet on this increment = " + elemenetDataHour);
 
-                // Compare it to the variable I defined with dayjs for currentHour
+                    // First, compare each data-hour attribute to the variable I defined with dayjs for currentHour to set time block colors...
 
-                    // If the elements time is before the current time, indicate its a past item
-                    if (elemenetDataHour < currentHour) {
-                        $(this).addClass ("pastColor");
-                    }
+                        // If the elements time is before the current time, indicate its a past item
+                        if (elemenetDataHour < currentHour) {
+                            $(this).addClass ("pastColor");
+                        }
 
-                    // If the elemenets time is in the current time hour, indicate its a current item
-                    if (elemenetDataHour == currentHour) {
-                        $(this).addClass ("presentColor");
-                    }
+                        // If the elemenets time is in the current time hour, indicate its a current item
+                        if (elemenetDataHour == currentHour) {
+                            $(this).addClass ("presentColor");
+                        }
 
-                    // If the elemenets time is ahead of the current hour, indicate it's a future hour
-                    if (elemenetDataHour > currentHour) {
-                        $(this).addClass ("futureColor");
-                    }
+                        // If the elemenets time is ahead of the current hour, indicate it's a future hour
+                        if (elemenetDataHour > currentHour) {
+                            $(this).addClass ("futureColor");
+                        }
+
+                    // Then, use the data-hour attribute value to check localStorage for existance of a key...
+                    var retrievedScheduleEvent = localStorage.getItem(elemenetDataHour);
+                        console.log ( "local storage item retrieved for this increment = " + retrievedScheduleEvent);
+
+                        // If a key exists, take the value for that key and populate the rows input elemenet with the prior text string stored...
+
+                            //Check if something exists...
+                            if (retrievedScheduleEvent!= null) {
+                                console.log("Detected that a schedule event exists for the dataHour attribute for this incremenet")
+
+                                // Set the text of the input element for this row equal to the retrievedScheduleEvent by traversing DOM...
+                                $(this).siblings().find("input").val(retrievedScheduleEvent);
+                                    console.log("Populated the retrived value to the input field")
+
+                            }
+
                 })
 
-                // Populate input fields with the stored local content
+                
 
-   
         // When a user types an entry and hits the schedule button...
         $(".allScheduleButtons").click(function() { 
             console.log("detected schedule button click");

@@ -63,7 +63,6 @@ $(document).ready(function() {
                                 // Set the text of the input element for this row equal to the retrievedScheduleEvent by traversing DOM...
                                 $(this).siblings().find("input").val(retrievedScheduleEvent);
                                     console.log("Populated the retrived value to the input field")
-
                             }
 
                 })

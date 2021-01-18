@@ -56,13 +56,19 @@ $(document).ready(function() {
 
                         // If a key exists, take the value for that key and populate the rows input elemenet with the prior text string stored...
 
-                            //Check if something exists...
+                            // If Sometthing exists in local storage...
                             if (retrievedScheduleEvent!= null) {
                                 console.log("Detected that a schedule event exists for the dataHour attribute for this incremenet")
 
                                 // Set the text of the input element for this row equal to the retrievedScheduleEvent by traversing DOM...
                                 $(this).siblings().find("input").val(retrievedScheduleEvent);
-                                    console.log("Populated the retrived value to the input field")
+                                    console.log("Populated the retrived value to the input field for this input")
+                            }
+                            // If nothing exists, populate empty strings in all inputs (to support the clear schedule)
+                            else {
+                                $(this).siblings().find("input").val("");
+                                console.log("Ensured and empty string exists for this input since no prior values were detected")
+                                
                             }
 
                 })
@@ -85,6 +91,17 @@ $(document).ready(function() {
 
                 // Store the value for this input with the local key using javascript localstore method...
                 localStorage.setItem(localKey, scheduleEntry);
+        })
+
+        // When a user hits the clear Schedule Button...
+        $("#clearScheduleButton").click(function() {
+            console.log ("Clear Schedule Button Press Detected");
+
+            // Clear the local storage
+            localStorage.clear();
+
+            // Refresh the page to re run the code upon page load, including re-setting empty values if no prior one is in local storage...
+            location.reload();
         })
 
 

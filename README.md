@@ -31,6 +31,7 @@ For displaying the date, I used dayjs instead of monument since most items I rea
 
 Using jQuery was much shorter than doing just vanilla javascript. I was able to get a fast grasp on why one would want to use such a framework, since it cut down on a lot of code lines compared to doing it without jQuery. I also didnt have to define variables for elements I wanted to get using javascript, since I can instead just get them by using $(selector) with jQuery. This was much less time consuming than the previous assignment for this reason. 
 
+**Note** This is mobile responsive, but if you make it on a phone size viewport its not pretty with the margins and such. Had that been a hard requirement or had this been real life, I would have put more custom CSS and media queries in to make it good. But it works still and collapses fine so I left as is for this particular assignment.
 
 ## Credits
 I utilized some stack, w3 schools, mozilla, jQuery documentation and class notes to completed this work. The approach I took was all my own logic. 

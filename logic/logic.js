@@ -68,12 +68,8 @@ $(document).ready(function() {
                             else {
                                 $(this).siblings().find("input").val("");
                                 console.log("Ensured and empty string exists for this input since no prior values were detected")
-                                
                             }
-
                 })
-
-                
 
         // When a user types an entry and hits the schedule button...
         $(".allScheduleButtons").click(function() { 
@@ -103,7 +99,5 @@ $(document).ready(function() {
             // Refresh the page to re run the code upon page load, including re-setting empty values if no prior one is in local storage...
             location.reload();
         })
-
-
 
 })

@@ -31,7 +31,6 @@ $(document).ready(function() {
 
                 // Check the data-hour attribute of the element...
                 var elemenetDataHour = $(this).attr("data-hour");
-                    console.log("data-hour attribute retrieved for elemenet on this increment = " + elemenetDataHour);
 
                     // First, compare each data-hour attribute to the variable I defined with dayjs for currentHour to set time block colors...
 
@@ -52,29 +51,24 @@ $(document).ready(function() {
 
                     // Then, use the data-hour attribute value to check localStorage for existance of a key...
                     var retrievedScheduleEvent = localStorage.getItem(elemenetDataHour);
-                        console.log ( "local storage item retrieved for this increment = " + retrievedScheduleEvent);
 
                         // If a key exists, take the value for that key and populate the rows input elemenet with the prior text string stored...
 
                             // If Sometthing exists in local storage...
                             if (retrievedScheduleEvent!= null) {
-                                console.log("Detected that a schedule event exists for the dataHour attribute for this incremenet")
 
                                 // Set the text of the input element for this row equal to the retrievedScheduleEvent by traversing DOM...
                                 $(this).siblings().find("input").val(retrievedScheduleEvent);
-                                    console.log("Populated the retrived value to the input field for this input")
                             }
-                            // If nothing exists, populate empty strings in all inputs (to support the clear schedule)
+
+                            // If nothing exists, populate empty strings in all inputs (to support the clear schedule button functionality below)
                             else {
                                 $(this).siblings().find("input").val("");
-                                console.log("Ensured and empty string exists for this input since no prior values were detected")
                             }
                 })
 
         // When a user types an entry and hits the schedule button...
         $(".allScheduleButtons").click(function() { 
-            console.log("detected schedule button click");
-            
 
             // Traverse the DOM from this button to get the value for it's related input elemenet...
             scheduleEntry = $(this).parent().parent().siblings().children().val();

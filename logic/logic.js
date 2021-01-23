@@ -6,7 +6,7 @@ $(document).ready(function() {
     var todayDate = dayjs().format("dddd, MMMM D");
         console.log("Current date returned with dayjs call " + todayDate);
     
-    var currentTime = dayjs().format("h:mm A");
+    var currentTime = dayjs().format("h:mm A"); //Not using this, just playing with dayjs on time.
         console.log("Current time returned with dayjs call " + currentTime);
 
     var currentHour = dayjs().hour();
@@ -18,7 +18,7 @@ $(document).ready(function() {
 
         // When page loads....
 
-            // Get current date and time and display in jumbotron...
+            // Get current date (that i got above via api call to dayjs) and display in jumbotron...
             $ ("#currentDay").text(todayDate);
 
             // Assign color coding to time blocks based on if its a time in the past, present, or future...

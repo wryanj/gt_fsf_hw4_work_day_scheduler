@@ -74,6 +74,7 @@ $(document).ready(function() {
         // When a user types an entry and hits the schedule button...
         $(".allScheduleButtons").click(function() { 
             console.log("detected schedule button click");
+            
 
             // Traverse the DOM from this button to get the value for it's related input elemenet...
             scheduleEntry = $(this).parent().parent().siblings().children().val();

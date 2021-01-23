@@ -13,10 +13,7 @@ $(document).ready(function() {
         console.log("Current hour returned with dayjs call " + currentHour);
 
     var scheduleEntry;
-
-    // Add Event Handlers
     
-
     // Define Script Logic
 
         // When page loads....
@@ -24,9 +21,9 @@ $(document).ready(function() {
             // Get current date and time and display in jumbotron...
             $ ("#currentDay").text(todayDate);
 
-            // Assign color coding to time blocks...
+            // Assign color coding to time blocks based on if its a time in the past, present, or future...
 
-                //Loop through all elemenets with timeBlock class using jQuery each method...
+                // Loop through all elemenets with timeBlock class using jQuery each method...
                 $(".timeBlock").each(function(){
 
                 // Check the data-hour attribute of the element...
@@ -49,10 +46,10 @@ $(document).ready(function() {
                             $(this).addClass ("futureColor");
                         }
 
-                    // Then, use the data-hour attribute value to check localStorage for existance of a key...
+                    // Then, use the data-hour attribute value to check localStorage for existance of a key (indicating a saved schedule item exists already for that line)...
                     var retrievedScheduleEvent = localStorage.getItem(elemenetDataHour);
 
-                        // If a key exists, take the value for that key and populate the rows input elemenet with the prior text string stored...
+                        // If a key exists, take the value associated for that key and populate the rows input element with the saved string...
 
                             // If Sometthing exists in local storage...
                             if (retrievedScheduleEvent!= null) {
@@ -61,7 +58,7 @@ $(document).ready(function() {
                                 $(this).siblings().find("input").val(retrievedScheduleEvent);
                             }
 
-                            // If nothing exists, populate empty strings in all inputs (to support the clear schedule button functionality below)
+                            // If nothing exists, populate empty string in the input (to support the clear schedule button functionality below)
                             else {
                                 $(this).siblings().find("input").val("");
                             }
@@ -70,13 +67,13 @@ $(document).ready(function() {
         // When a user types an entry and hits the schedule button...
         $(".allScheduleButtons").click(function() { 
 
-            // Traverse the DOM from this button to get the value for it's related input elemenet...
+            // Traverse the DOM to find the input line on the same row as this schedule button, and populate the entered text to that input elemement...
             scheduleEntry = $(this).parent().parent().siblings().children().val();
                 console.log("User Event Scheduled = " + "'" + scheduleEntry + "'");
 
-            // Store it to local storage with a key unique to that input...
+            // The, store it to local storage with a key unique to that input elemenet (e.x save the text for the 11 AM row for 11 AM)
             
-                // Traverse the dom to get the data hour attribute of the overall row to set as the key..
+                // Traverse the dom to get the data hour attribute of the overall row and then set it as the key for local storage..
                 var localKey = $(this).parents("form").siblings().attr("data-hour");
                     console.log("local key generated for this schedule item is " + localKey);
 
@@ -84,14 +81,14 @@ $(document).ready(function() {
                 localStorage.setItem(localKey, scheduleEntry);
         })
 
-        // When a user hits the clear Schedule Button...
+        // When a user hits the Clear Schedule Button...
         $("#clearScheduleButton").click(function() {
             console.log ("Clear Schedule Button Press Detected");
 
-            // Clear the local storage
+            // Clear the local storage out
             localStorage.clear();
 
-            // Refresh the page to re run the code upon page load, including re-setting empty values if no prior one is in local storage...
+            // Refresh the page (based on code for refresh page, this will set emptry strings to all inputs with no local storage)...
             location.reload();
         })
 
